@@ -15,7 +15,7 @@ It should work well, but maybe not if you modified 2p2t.yml. (see Important note
 Important
 ------
 - Do NOT set `settings.max-chunk-gen-threads` to greater than 1 unless you know what you are doing.
-- This branch is not compatible with master branch. Do not merge, please copy patch files to master branch instead.
+- This branch is NOT ready for production.
 
 Documentation
 ------
