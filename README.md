@@ -1,10 +1,10 @@
-2p2t
+4p4t
 ===========
 
 High performance Paper fork that aims to fix performance, exploits, gameplay and mechanics inconsistencies.
 
 This branch is `feature/async-chunk-gen` and may contain experimental code.
-It should work well, but maybe not if you modified 2p2t.yml. (see Important note below)
+It should work well, but maybe not if you modified 4p4t.yml. (see Important note below)
 
 - Async advancement data load/save
 - Async statistic data load/save

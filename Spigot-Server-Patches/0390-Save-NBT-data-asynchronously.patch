@@ -1,11 +1,11 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: acrylic-style <ilyy@outlook.jp>
 Date: Sun, 31 Jan 2021 04:02:45 +0900
-Subject: [PATCH] save nbt asynchronously
+Subject: [PATCH] Save NBT data asynchronously
 
 
 diff --git a/src/main/java/net/minecraft/server/PersistentCollection.java b/src/main/java/net/minecraft/server/PersistentCollection.java
-index 50056f49a8eaea687d00175e41a877040934e9ae..0213207100c042cf0acd339569c8cb10a0029618 100644
+index 50056f49a8eaea687d00175e41a877040934e9ae..76c6f574cbb5e73419f5ac7a8bb0b19e3990d789 100644
 --- a/src/main/java/net/minecraft/server/PersistentCollection.java
 +++ b/src/main/java/net/minecraft/server/PersistentCollection.java
 @@ -11,6 +11,7 @@ import java.io.FileInputStream;
@@ -20,15 +20,15 @@ index 50056f49a8eaea687d00175e41a877040934e9ae..0213207100c042cf0acd339569c8cb10
  
      }
  
-+    private static final java.util.concurrent.ExecutorService SAVE_EXECUTOR = java.util.concurrent.Executors.newFixedThreadPool(xyz.acrylicstyle.paper.The2b2tConfig.maxDataSaveThreads); // 2p2t
++    private static final java.util.concurrent.ExecutorService SAVE_EXECUTOR = java.util.concurrent.Executors.newFixedThreadPool(xyz.acrylicstyle.paper.The4p4tConfig.maxDataSaveThreads); // 4p4t
      private void a(PersistentBase persistentbase) {
-+        // 2p2t start
++        // 4p4t start
 +        a(persistentbase, new java.util.concurrent.atomic.AtomicInteger());
 +    }
 +    private void a(PersistentBase persistentbase, java.util.concurrent.atomic.AtomicInteger tries) {
-+        // 2p2t end
++        // 4p4t end
          if (this.b != null) {
-+            SAVE_EXECUTOR.submit(() -> { // 2p2t
++            SAVE_EXECUTOR.submit(() -> { // 4p4t
              try {
                  File file = this.b.getDataFile(persistentbase.id);
  
@@ -36,7 +36,7 @@ index 50056f49a8eaea687d00175e41a877040934e9ae..0213207100c042cf0acd339569c8cb10
                      NBTCompressedStreamTools.a(nbttagcompound, (OutputStream) fileoutputstream);
                      fileoutputstream.close();
                  }
-+                // 2p2t start
++                // 4p4t start
 +            } catch (ConcurrentModificationException ex) {
 +                if (tries.incrementAndGet() > 5) {
 +                    ex.printStackTrace();
@@ -44,20 +44,20 @@ index 50056f49a8eaea687d00175e41a877040934e9ae..0213207100c042cf0acd339569c8cb10
 +                } else {
 +                    a(persistentbase, tries);
 +                }
-+                // 2p2t end
++                // 4p4t end
              } catch (Exception exception) {
                  exception.printStackTrace();
                  ServerInternalException.reportInternalException(exception); // Paper
              }
-+            }); // 2p2t
++            }); // 4p4t
  
          }
      }
-diff --git a/src/main/java/xyz/acrylicstyle/paper/The2b2tConfig.java b/src/main/java/xyz/acrylicstyle/paper/The2b2tConfig.java
+diff --git a/src/main/java/xyz/acrylicstyle/paper/The4p4tConfig.java b/src/main/java/xyz/acrylicstyle/paper/The4p4tConfig.java
 new file mode 100644
-index 0000000000000000000000000000000000000000..767404d10452313474ff10ee67222d427578f75f
+index 0000000000000000000000000000000000000000..2f066bc845170634d2d63164910eaddfd19a8918
 --- /dev/null
-+++ b/src/main/java/xyz/acrylicstyle/paper/The2b2tConfig.java
++++ b/src/main/java/xyz/acrylicstyle/paper/The4p4tConfig.java
 @@ -0,0 +1,118 @@
 +package xyz.acrylicstyle.paper;
 +
@@ -74,10 +74,10 @@ index 0000000000000000000000000000000000000000..767404d10452313474ff10ee67222d42
 +import java.util.List;
 +import java.util.logging.Level;
 +
-+public class The2b2tConfig {
++public class The4p4tConfig {
 +
 +    private static File CONFIG_FILE;
-+    private static final String HEADER = "This is the main configuration file for 2p2t.\n"
++    private static final String HEADER = "This is the main configuration file for 4p4t.\n"
 +        + "As you can see, there's tons to configure. Some options may impact gameplay or performance,\n"
 +        + "so use with caution, and make sure you know what each option does before configuring.\n";
 +    /*========================================================================*/
@@ -93,7 +93,7 @@ index 0000000000000000000000000000000000000000..767404d10452313474ff10ee67222d42
 +            config.load(CONFIG_FILE);
 +        } catch (IOException ignore) {
 +        } catch (InvalidConfigurationException ex) {
-+            Bukkit.getLogger().log(Level.SEVERE, "Could not load 2p2t.yml, please correct your syntax errors", ex);
++            Bukkit.getLogger().log(Level.SEVERE, "Could not load 4p4t.yml, please correct your syntax errors", ex);
 +            Throwables.throwIfUnchecked(ex);
 +            throw new RuntimeException(ex);
 +        }
@@ -103,7 +103,7 @@ index 0000000000000000000000000000000000000000..767404d10452313474ff10ee67222d42
 +
 +        version = getInt("config-version", 13);
 +        set("config-version", 13);
-+        readConfig(The2b2tConfig.class, null);
++        readConfig(The4p4tConfig.class, null);
 +    }
 +
 +    protected static void logError(String s) {
