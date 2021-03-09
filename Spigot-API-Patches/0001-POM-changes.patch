@@ -16,12 +16,12 @@ index 7c81917d7c280b44fca6cd5894d8e860c93f7577..db3547ef649e1de5514fc750de0a95d1
 -    <artifactId>spigot-api</artifactId>
 +    <parent>
 +        <groupId>xyz.acrylicstyle.paper</groupId>
-+        <artifactId>2p2t-parent</artifactId>
++        <artifactId>4p4t-parent</artifactId>
 +        <version>dev-SNAPSHOT</version>
 +    </parent>
 +
 +    <groupId>xyz.acrylicstyle.paper</groupId>
-+    <artifactId>2p2t-api</artifactId>
++    <artifactId>4p4t-api</artifactId>
      <version>1.12.2-R0.1-SNAPSHOT</version>
      <packaging>jar</packaging>
  

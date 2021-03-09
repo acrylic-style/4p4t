@@ -5,7 +5,7 @@
 
     <!-- Avoid making changes to this file, it has to be deployed manually -->
     <groupId>xyz.acrylicstyle.paper</groupId>
-    <artifactId>2p2t-parent</artifactId>
+    <artifactId>4p4t-parent</artifactId>
     <version>dev-SNAPSHOT</version>
     <packaging>pom</packaging>
 

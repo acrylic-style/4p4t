@@ -1,7 +1,7 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: acrylic-style <ilyy@outlook.jp>
 Date: Mon, 11 Jan 2021 21:17:32 +0900
-Subject: [PATCH] Show as "2p2t"
+Subject: [PATCH] Show as "4p4t"
 
 
 diff --git a/src/main/java/net/minecraft/server/MinecraftServer.java b/src/main/java/net/minecraft/server/MinecraftServer.java
@@ -13,7 +13,7 @@ index 3b982f9906c7212779426b9fb8d9f943a8f1eb6c..0c1769f5a3813c2652ac06abfaaf514b
  
      public String getServerModName() {
 -        return "Paper"; //Paper - Paper > // Spigot - Spigot > // CraftBukkit - cb > vanilla!
-+        return "2p2t"; // 2p2t - 2p2t > //Paper - Paper > // Spigot - Spigot > // CraftBukkit - cb > vanilla!
++        return "2p2t"; // 4p4t > // 2p2t - 2p2t > //Paper - Paper > // Spigot - Spigot > // CraftBukkit - cb > vanilla!
      }
  
      public CrashReport b(CrashReport crashreport) {
@@ -26,7 +26,7 @@ index 7c82e18b9ff634175749327660b256a7e8e655af..79a940d6e678952c006a5c7ec76b31e8
  
  public final class CraftServer implements Server {
 -    private final String serverName = "Paper";
-+    private final String serverName = "2p2t";
++    private final String serverName = "4p4t"; // 4p4t
      private final String serverVersion;
      private final String bukkitVersion = Versioning.getBukkitVersion();
      private final Logger logger = Logger.getLogger("Minecraft");
@@ -39,7 +39,7 @@ index 674096cab190d62622f9947853b056f57d43a2a5..2db6ac75aef1db08140f780149fc52d9
          String result = "Unknown-Version";
  
 -        InputStream stream = Bukkit.class.getClassLoader().getResourceAsStream("META-INF/maven/com.destroystokyo.paper/paper-api/pom.properties");
-+        InputStream stream = Bukkit.class.getClassLoader().getResourceAsStream("META-INF/maven/xyz.acrylicstyle.paper/2p2t-api/pom.properties");
++        InputStream stream = Bukkit.class.getClassLoader().getResourceAsStream("META-INF/maven/xyz.acrylicstyle.paper/4p4t-api/pom.properties");
          Properties properties = new Properties();
  
          if (stream != null) {

@@ -40,10 +40,6 @@ How To (Pull Request)
 ------
 See [Contributing](CONTRIBUTING.md)
 
-What is 2p2t?
--------------
-2paper2tools
-
 Special Thanks To:
 -------------
 

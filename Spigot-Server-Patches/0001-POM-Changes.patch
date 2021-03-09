@@ -15,7 +15,7 @@ index e0b6eee4ed4caee57f1e07c28e5445c1d7baa899..7609282463a9a9fcdc25b10fc331656c
 -    <groupId>org.spigotmc</groupId>
 -    <artifactId>spigot</artifactId>
 +    <groupId>xyz.acrylicstyle.paper</groupId>
-+    <artifactId>2p2t</artifactId>
++    <artifactId>4p4t</artifactId>
      <packaging>jar</packaging>
      <version>1.12.2-R0.1-SNAPSHOT</version>
 -    <name>Spigot</name>
@@ -32,7 +32,7 @@ index e0b6eee4ed4caee57f1e07c28e5445c1d7baa899..7609282463a9a9fcdc25b10fc331656c
 -        <groupId>org.spigotmc</groupId>
 -        <artifactId>spigot-parent</artifactId>
 +        <groupId>xyz.acrylicstyle.paper</groupId>
-+        <artifactId>2p2t-parent</artifactId>
++        <artifactId>4p4t-parent</artifactId>
          <version>dev-SNAPSHOT</version>
          <relativePath>../pom.xml</relativePath>
      </parent>
@@ -43,7 +43,7 @@ index e0b6eee4ed4caee57f1e07c28e5445c1d7baa899..7609282463a9a9fcdc25b10fc331656c
 -            <groupId>org.spigotmc</groupId>
 -            <artifactId>spigot-api</artifactId>
 +            <groupId>xyz.acrylicstyle.paper</groupId>
-+            <artifactId>2p2t-api</artifactId>
++            <artifactId>4p4t-api</artifactId>
              <version>${project.version}</version>
              <scope>compile</scope>
          </dependency>
